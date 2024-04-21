@@ -28,27 +28,33 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Cabrera_MarkAlexis_BSIT22A3_PCBTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(
-                        "Jetpack Compose tutorial",
-                        "Jetpack Compose is a modern toolkit for building native " +
-                                "Android UI. Compose simplifies and accelerates UI development " +
-                                "on Android with less code, powerful tools, and intuitive Kotlin APIs.",
-                        "In this tutorial, you build a simple UI component with declarative " +
-                                "functions. You call Compose functions to say what elements you want " +
-                                "and the Compose compiler does the rest. Compose is built around " +
-                                "Composable functions. These functions let you define your app's " +
-                                "UI programmatically because they let you describe how it should look " +
-                                "and provide dependencies, rather than focus on the process of the " +
-                                "UIs construction, such as initializing an element and then " +
-                                "attaching it to a parent. To create a Composable function, " +
-                                "you add the @Composable annotation to the function name."
-                    )
-                    GreetingImage()
+                    // Nilagay ko rito yung pagdeclare ng composable na ginawa ko sa baba
+                    Column {
+                        Row {
+                            GreetingImage()
+                        }
+                        Row {
+                            Greeting(
+                                "Jetpack Compose tutorial",
+                                "Jetpack Compose is a modern toolkit for building native " +
+                                        "Android UI. Compose simplifies and accelerates UI development " +
+                                        "on Android with less code, powerful tools, and intuitive Kotlin APIs.",
+                                "In this tutorial, you build a simple UI component with declarative " +
+                                        "functions. You call Compose functions to say what elements you want " +
+                                        "and the Compose compiler does the rest. Compose is built around " +
+                                        "Composable functions. These functions let you define your app's " +
+                                        "UI programmatically because they let you describe how it should look " +
+                                        "and provide dependencies, rather than focus on the process of the " +
+                                        "UIs construction, such as initializing an element and then " +
+                                        "attaching it to a parent. To create a Composable function, " +
+                                        "you add the @Composable annotation to the function name."
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -69,6 +75,7 @@ fun GreetingImage() {
 
 @Composable
 fun Greeting(title: String, paragraph1: String, paragraph2: String, modifier: Modifier = Modifier) {
+    // gumamit ako ng column at row para maisaayos yung pagkakapantay pantay ng text
     Column {
         Row {
             Text(
